@@ -1,0 +1,925 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CarDealershipModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Address_Id" />
+          </Key>
+          <Property Name="Address_Id" Type="int" Nullable="false" />
+          <Property Name="City_Id" Type="int" Nullable="false" />
+          <Property Name="Street_Id" Type="int" Nullable="false" />
+          <Property Name="HouseNumber" Type="int" Nullable="false" />
+          <Property Name="FlatNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="Car_Id" />
+          </Key>
+          <Property Name="Car_Id" Type="int" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Series_Id" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_Id" />
+          </Key>
+          <Property Name="Category_Id" Type="int" Nullable="false" />
+          <Property Name="Category_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="City_Id" />
+          </Key>
+          <Property Name="City_Id" Type="int" Nullable="false" />
+          <Property Name="City_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Country_Id" />
+          </Key>
+          <Property Name="Country_Id" Type="int" Nullable="false" />
+          <Property Name="Country_Name" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Customer_Id" />
+          </Key>
+          <Property Name="Customer_Id" Type="int" Nullable="false" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassportData" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Address_Id" Type="int" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Gender_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Employee_Id" />
+          </Key>
+          <Property Name="Employee_Id" Type="int" Nullable="false" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkExperience" Type="int" Nullable="false" />
+          <Property Name="Salary" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Gender_Id" />
+          </Key>
+          <Property Name="Gender_Id" Type="int" Nullable="false" />
+          <Property Name="Gender_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mark">
+          <Key>
+            <PropertyRef Name="Mark_Id" />
+          </Key>
+          <Property Name="Mark_Id" Type="int" Nullable="false" />
+          <Property Name="Mark_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Country_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="Request_Id" />
+          </Key>
+          <Property Name="Request_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_Id" Type="int" Nullable="false" />
+          <Property Name="Car_Id" Type="int" Nullable="false" />
+          <Property Name="RequestStatus_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RequestStatus">
+          <Key>
+            <PropertyRef Name="RequestStatus_Id" />
+          </Key>
+          <Property Name="RequestStatus_Id" Type="int" Nullable="false" />
+          <Property Name="RequestStatus_Description" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="Sale_Id" />
+          </Key>
+          <Property Name="Sale_Id" Type="int" Nullable="false" />
+          <Property Name="Sale_Date" Type="date" Nullable="false" />
+          <Property Name="Employee_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Series">
+          <Key>
+            <PropertyRef Name="Series_Id" />
+          </Key>
+          <Property Name="Series_Id" Type="int" Nullable="false" />
+          <Property Name="Series_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="YearOfProducement" Type="int" Nullable="false" />
+          <Property Name="Category_Id" Type="int" Nullable="false" />
+          <Property Name="Mark_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="Street_Id" />
+          </Key>
+          <Property Name="Street_Id" Type="int" Nullable="false" />
+          <Property Name="Street_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Address_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="City_Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="City_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Street">
+          <End Role="Street" Type="Self.Street" Multiplicity="1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="Street_Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="Street_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Car_Series">
+          <End Role="Series" Type="Self.Series" Multiplicity="1" />
+          <End Role="Car" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Series">
+              <PropertyRef Name="Series_Id" />
+            </Principal>
+            <Dependent Role="Car">
+              <PropertyRef Name="Series_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Address">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Address_Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="Address_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Gender_Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="Gender_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mark_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="Mark" Type="Self.Mark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Country_Id" />
+            </Principal>
+            <Dependent Role="Mark">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Car">
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="Car_Id" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="Car_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_Id" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="Customer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_RequestStatus">
+          <End Role="RequestStatus" Type="Self.RequestStatus" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestStatus">
+              <PropertyRef Name="RequestStatus_Id" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="RequestStatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_Id" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Employee_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Request">
+          <End Role="Request" Type="Self.Request" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Request">
+              <PropertyRef Name="Request_Id" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Sale_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Series_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Series" Type="Self.Series" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Category_Id" />
+            </Principal>
+            <Dependent Role="Series">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Series_Mark">
+          <End Role="Mark" Type="Self.Mark" Multiplicity="1" />
+          <End Role="Series" Type="Self.Series" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mark">
+              <PropertyRef Name="Mark_Id" />
+            </Principal>
+            <Dependent Role="Series">
+              <PropertyRef Name="Mark_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CarDealershipModelStoreContainer">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mark" EntityType="Self.Mark" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestStatus" EntityType="Self.RequestStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Series" EntityType="Self.Series" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Street" EntityType="Self.Street" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Address_City" Association="Self.FK_Address_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Street" Association="Self.FK_Address_Street">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Car_Series" Association="Self.FK_Car_Series">
+            <End Role="Series" EntitySet="Series" />
+            <End Role="Car" EntitySet="Car" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Address" Association="Self.FK_Customer_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Gender" Association="Self.FK_Customer_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mark_Country" Association="Self.FK_Mark_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Mark" EntitySet="Mark" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Car" Association="Self.FK_Request_Car">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Customer" Association="Self.FK_Request_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_RequestStatus" Association="Self.FK_Request_RequestStatus">
+            <End Role="RequestStatus" EntitySet="RequestStatus" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Employee" Association="Self.FK_Sale_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Request" Association="Self.FK_Sale_Request">
+            <End Role="Request" EntitySet="Request" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Series_Category" Association="Self.FK_Series_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Series" EntitySet="Series" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Series_Mark" Association="Self.FK_Series_Mark">
+            <End Role="Mark" EntitySet="Mark" />
+            <End Role="Series" EntitySet="Series" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CarDealershipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CarDealershipEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Address" EntityType="CarDealershipModel.Address" />
+          <EntitySet Name="Car" EntityType="CarDealershipModel.Car" />
+          <EntitySet Name="Category" EntityType="CarDealershipModel.Category" />
+          <EntitySet Name="City" EntityType="CarDealershipModel.City" />
+          <EntitySet Name="Country" EntityType="CarDealershipModel.Country" />
+          <EntitySet Name="Customer" EntityType="CarDealershipModel.Customer" />
+          <EntitySet Name="Employee" EntityType="CarDealershipModel.Employee" />
+          <EntitySet Name="Gender" EntityType="CarDealershipModel.Gender" />
+          <EntitySet Name="Mark" EntityType="CarDealershipModel.Mark" />
+          <EntitySet Name="Request" EntityType="CarDealershipModel.Request" />
+          <EntitySet Name="RequestStatus" EntityType="CarDealershipModel.RequestStatus" />
+          <EntitySet Name="Sale" EntityType="CarDealershipModel.Sale" />
+          <EntitySet Name="Series" EntityType="CarDealershipModel.Series" />
+          <EntitySet Name="Street" EntityType="CarDealershipModel.Street" />
+          <EntitySet Name="sysdiagrams" EntityType="CarDealershipModel.sysdiagrams" />
+          <AssociationSet Name="FK_Address_City" Association="CarDealershipModel.FK_Address_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Street" Association="CarDealershipModel.FK_Address_Street">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Address" Association="CarDealershipModel.FK_Customer_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Car_Series" Association="CarDealershipModel.FK_Car_Series">
+            <End Role="Series" EntitySet="Series" />
+            <End Role="Car" EntitySet="Car" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Car" Association="CarDealershipModel.FK_Request_Car">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Series_Category" Association="CarDealershipModel.FK_Series_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Series" EntitySet="Series" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mark_Country" Association="CarDealershipModel.FK_Mark_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Mark" EntitySet="Mark" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Gender" Association="CarDealershipModel.FK_Customer_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Customer" Association="CarDealershipModel.FK_Request_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Employee" Association="CarDealershipModel.FK_Sale_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Series_Mark" Association="CarDealershipModel.FK_Series_Mark">
+            <End Role="Mark" EntitySet="Mark" />
+            <End Role="Series" EntitySet="Series" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_RequestStatus" Association="CarDealershipModel.FK_Request_RequestStatus">
+            <End Role="RequestStatus" EntitySet="RequestStatus" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Request" Association="CarDealershipModel.FK_Sale_Request">
+            <End Role="Request" EntitySet="Request" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Address_Id" />
+          </Key>
+          <Property Name="Address_Id" Type="Int32" Nullable="false" />
+          <Property Name="City_Id" Type="Int32" Nullable="false" />
+          <Property Name="Street_Id" Type="Int32" Nullable="false" />
+          <Property Name="HouseNumber" Type="Int32" Nullable="false" />
+          <Property Name="FlatNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="CarDealershipModel.FK_Address_City" FromRole="Address" ToRole="City" />
+          <NavigationProperty Name="Street" Relationship="CarDealershipModel.FK_Address_Street" FromRole="Address" ToRole="Street" />
+          <NavigationProperty Name="Customer" Relationship="CarDealershipModel.FK_Customer_Address" FromRole="Address" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="Car_Id" />
+          </Key>
+          <Property Name="Car_Id" Type="Int32" Nullable="false" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Series_Id" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Series" Relationship="CarDealershipModel.FK_Car_Series" FromRole="Car" ToRole="Series" />
+          <NavigationProperty Name="Request" Relationship="CarDealershipModel.FK_Request_Car" FromRole="Car" ToRole="Request" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_Id" />
+          </Key>
+          <Property Name="Category_Id" Type="Int32" Nullable="false" />
+          <Property Name="Category_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Series" Relationship="CarDealershipModel.FK_Series_Category" FromRole="Category" ToRole="Series" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="City_Id" />
+          </Key>
+          <Property Name="City_Id" Type="Int32" Nullable="false" />
+          <Property Name="City_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Address" Relationship="CarDealershipModel.FK_Address_City" FromRole="City" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Country_Id" />
+          </Key>
+          <Property Name="Country_Id" Type="Int32" Nullable="false" />
+          <Property Name="Country_Name" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Mark" Relationship="CarDealershipModel.FK_Mark_Country" FromRole="Country" ToRole="Mark" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Customer_Id" />
+          </Key>
+          <Property Name="Customer_Id" Type="Int32" Nullable="false" />
+          <Property Name="Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PassportData" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="Address_Id" Type="Int32" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Gender_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="CarDealershipModel.FK_Customer_Address" FromRole="Customer" ToRole="Address" />
+          <NavigationProperty Name="Gender" Relationship="CarDealershipModel.FK_Customer_Gender" FromRole="Customer" ToRole="Gender" />
+          <NavigationProperty Name="Request" Relationship="CarDealershipModel.FK_Request_Customer" FromRole="Customer" ToRole="Request" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Employee_Id" />
+          </Key>
+          <Property Name="Employee_Id" Type="Int32" Nullable="false" />
+          <Property Name="Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WorkExperience" Type="Int32" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <NavigationProperty Name="Sale" Relationship="CarDealershipModel.FK_Sale_Employee" FromRole="Employee" ToRole="Sale" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Gender_Id" />
+          </Key>
+          <Property Name="Gender_Id" Type="Int32" Nullable="false" />
+          <Property Name="Gender_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customer" Relationship="CarDealershipModel.FK_Customer_Gender" FromRole="Gender" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Mark">
+          <Key>
+            <PropertyRef Name="Mark_Id" />
+          </Key>
+          <Property Name="Mark_Id" Type="Int32" Nullable="false" />
+          <Property Name="Mark_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="CarDealershipModel.FK_Mark_Country" FromRole="Mark" ToRole="Country" />
+          <NavigationProperty Name="Series" Relationship="CarDealershipModel.FK_Series_Mark" FromRole="Mark" ToRole="Series" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="Request_Id" />
+          </Key>
+          <Property Name="Request_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_Id" Type="Int32" Nullable="false" />
+          <Property Name="Car_Id" Type="Int32" Nullable="false" />
+          <Property Name="RequestStatus_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="CarDealershipModel.FK_Request_Car" FromRole="Request" ToRole="Car" />
+          <NavigationProperty Name="Customer" Relationship="CarDealershipModel.FK_Request_Customer" FromRole="Request" ToRole="Customer" />
+          <NavigationProperty Name="RequestStatus" Relationship="CarDealershipModel.FK_Request_RequestStatus" FromRole="Request" ToRole="RequestStatus" />
+          <NavigationProperty Name="Sale" Relationship="CarDealershipModel.FK_Sale_Request" FromRole="Request" ToRole="Sale" />
+        </EntityType>
+        <EntityType Name="RequestStatus">
+          <Key>
+            <PropertyRef Name="RequestStatus_Id" />
+          </Key>
+          <Property Name="RequestStatus_Id" Type="Int32" Nullable="false" />
+          <Property Name="RequestStatus_Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Request" Relationship="CarDealershipModel.FK_Request_RequestStatus" FromRole="RequestStatus" ToRole="Request" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="Sale_Id" />
+          </Key>
+          <Property Name="Sale_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sale_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Employee_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="CarDealershipModel.FK_Sale_Employee" FromRole="Sale" ToRole="Employee" />
+          <NavigationProperty Name="Request" Relationship="CarDealershipModel.FK_Sale_Request" FromRole="Sale" ToRole="Request" />
+        </EntityType>
+        <EntityType Name="Series">
+          <Key>
+            <PropertyRef Name="Series_Id" />
+          </Key>
+          <Property Name="Series_Id" Type="Int32" Nullable="false" />
+          <Property Name="Series_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YearOfProducement" Type="Int32" Nullable="false" />
+          <Property Name="Category_Id" Type="Int32" Nullable="false" />
+          <Property Name="Mark_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="CarDealershipModel.FK_Car_Series" FromRole="Series" ToRole="Car" />
+          <NavigationProperty Name="Category" Relationship="CarDealershipModel.FK_Series_Category" FromRole="Series" ToRole="Category" />
+          <NavigationProperty Name="Mark" Relationship="CarDealershipModel.FK_Series_Mark" FromRole="Series" ToRole="Mark" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="Street_Id" />
+          </Key>
+          <Property Name="Street_Id" Type="Int32" Nullable="false" />
+          <Property Name="Street_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Address" Relationship="CarDealershipModel.FK_Address_Street" FromRole="Street" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Address_City">
+          <End Type="CarDealershipModel.City" Role="City" Multiplicity="1" />
+          <End Type="CarDealershipModel.Address" Role="Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="City_Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="City_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Street">
+          <End Type="CarDealershipModel.Street" Role="Street" Multiplicity="1" />
+          <End Type="CarDealershipModel.Address" Role="Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="Street_Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="Street_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Address">
+          <End Type="CarDealershipModel.Address" Role="Address" Multiplicity="1" />
+          <End Type="CarDealershipModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Address_Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="Address_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Car_Series">
+          <End Type="CarDealershipModel.Series" Role="Series" Multiplicity="1" />
+          <End Type="CarDealershipModel.Car" Role="Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Series">
+              <PropertyRef Name="Series_Id" />
+            </Principal>
+            <Dependent Role="Car">
+              <PropertyRef Name="Series_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Car">
+          <End Type="CarDealershipModel.Car" Role="Car" Multiplicity="1" />
+          <End Type="CarDealershipModel.Request" Role="Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="Car_Id" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="Car_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Series_Category">
+          <End Type="CarDealershipModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="CarDealershipModel.Series" Role="Series" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Category_Id" />
+            </Principal>
+            <Dependent Role="Series">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mark_Country">
+          <End Type="CarDealershipModel.Country" Role="Country" Multiplicity="1" />
+          <End Type="CarDealershipModel.Mark" Role="Mark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Country_Id" />
+            </Principal>
+            <Dependent Role="Mark">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Gender">
+          <End Type="CarDealershipModel.Gender" Role="Gender" Multiplicity="1" />
+          <End Type="CarDealershipModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Gender_Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="Gender_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Customer">
+          <End Type="CarDealershipModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="CarDealershipModel.Request" Role="Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_Id" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="Customer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Employee">
+          <End Type="CarDealershipModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="CarDealershipModel.Sale" Role="Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_Id" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Employee_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Series_Mark">
+          <End Type="CarDealershipModel.Mark" Role="Mark" Multiplicity="1" />
+          <End Type="CarDealershipModel.Series" Role="Series" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mark">
+              <PropertyRef Name="Mark_Id" />
+            </Principal>
+            <Dependent Role="Series">
+              <PropertyRef Name="Mark_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_RequestStatus">
+          <End Type="CarDealershipModel.RequestStatus" Role="RequestStatus" Multiplicity="1" />
+          <End Type="CarDealershipModel.Request" Role="Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestStatus">
+              <PropertyRef Name="RequestStatus_Id" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="RequestStatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Request">
+          <End Type="CarDealershipModel.Request" Role="Request" Multiplicity="1" />
+          <End Type="CarDealershipModel.Sale" Role="Sale" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Request">
+              <PropertyRef Name="Request_Id" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Sale_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CarDealershipModelStoreContainer" CdmEntityContainer="CarDealershipEntities">
+          <EntitySetMapping Name="Address">
+            <EntityTypeMapping TypeName="CarDealershipModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="FlatNumber" ColumnName="FlatNumber" />
+                <ScalarProperty Name="HouseNumber" ColumnName="HouseNumber" />
+                <ScalarProperty Name="Street_Id" ColumnName="Street_Id" />
+                <ScalarProperty Name="City_Id" ColumnName="City_Id" />
+                <ScalarProperty Name="Address_Id" ColumnName="Address_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Car">
+            <EntityTypeMapping TypeName="CarDealershipModel.Car">
+              <MappingFragment StoreEntitySet="Car">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Series_Id" ColumnName="Series_Id" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Car_Id" ColumnName="Car_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="CarDealershipModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="CarDealershipModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+                <ScalarProperty Name="City_Id" ColumnName="City_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="CarDealershipModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Country_Name" ColumnName="Country_Name" />
+                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="CarDealershipModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Gender_Id" ColumnName="Gender_Id" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Address_Id" ColumnName="Address_Id" />
+                <ScalarProperty Name="PassportData" ColumnName="PassportData" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="CarDealershipModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="WorkExperience" ColumnName="WorkExperience" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gender">
+            <EntityTypeMapping TypeName="CarDealershipModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="Gender_Name" ColumnName="Gender_Name" />
+                <ScalarProperty Name="Gender_Id" ColumnName="Gender_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mark">
+            <EntityTypeMapping TypeName="CarDealershipModel.Mark">
+              <MappingFragment StoreEntitySet="Mark">
+                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+                <ScalarProperty Name="Mark_Name" ColumnName="Mark_Name" />
+                <ScalarProperty Name="Mark_Id" ColumnName="Mark_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Request">
+            <EntityTypeMapping TypeName="CarDealershipModel.Request">
+              <MappingFragment StoreEntitySet="Request">
+                <ScalarProperty Name="RequestStatus_Id" ColumnName="RequestStatus_Id" />
+                <ScalarProperty Name="Car_Id" ColumnName="Car_Id" />
+                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+                <ScalarProperty Name="Request_Id" ColumnName="Request_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestStatus">
+            <EntityTypeMapping TypeName="CarDealershipModel.RequestStatus">
+              <MappingFragment StoreEntitySet="RequestStatus">
+                <ScalarProperty Name="RequestStatus_Description" ColumnName="RequestStatus_Description" />
+                <ScalarProperty Name="RequestStatus_Id" ColumnName="RequestStatus_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale">
+            <EntityTypeMapping TypeName="CarDealershipModel.Sale">
+              <MappingFragment StoreEntitySet="Sale">
+                <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+                <ScalarProperty Name="Sale_Date" ColumnName="Sale_Date" />
+                <ScalarProperty Name="Sale_Id" ColumnName="Sale_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Series">
+            <EntityTypeMapping TypeName="CarDealershipModel.Series">
+              <MappingFragment StoreEntitySet="Series">
+                <ScalarProperty Name="Mark_Id" ColumnName="Mark_Id" />
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+                <ScalarProperty Name="YearOfProducement" ColumnName="YearOfProducement" />
+                <ScalarProperty Name="Series_Name" ColumnName="Series_Name" />
+                <ScalarProperty Name="Series_Id" ColumnName="Series_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Street">
+            <EntityTypeMapping TypeName="CarDealershipModel.Street">
+              <MappingFragment StoreEntitySet="Street">
+                <ScalarProperty Name="Street_Name" ColumnName="Street_Name" />
+                <ScalarProperty Name="Street_Id" ColumnName="Street_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CarDealershipModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

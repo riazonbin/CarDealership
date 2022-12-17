@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="989d2a97d72c462d81371bd965fd268e" Name="Diagram1">
+        <EntityTypeShape EntityType="CarDealershipModel.Address" Width="1.5" PointX="5.25" PointY="8.75" />
+        <EntityTypeShape EntityType="CarDealershipModel.Car" Width="1.5" PointX="7.5" PointY="1" />
+        <EntityTypeShape EntityType="CarDealershipModel.Category" Width="1.5" PointX="3" PointY="5.375" />
+        <EntityTypeShape EntityType="CarDealershipModel.City" Width="1.5" PointX="3" PointY="10.5" />
+        <EntityTypeShape EntityType="CarDealershipModel.Country" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="CarDealershipModel.Customer" Width="1.5" PointX="7.5" PointY="9.75" />
+        <EntityTypeShape EntityType="CarDealershipModel.Employee" Width="1.5" PointX="9.75" PointY="5" />
+        <EntityTypeShape EntityType="CarDealershipModel.Gender" Width="1.5" PointX="5.25" PointY="12.75" />
+        <EntityTypeShape EntityType="CarDealershipModel.Mark" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="CarDealershipModel.Request" Width="1.5" PointX="9.75" PointY="1" />
+        <EntityTypeShape EntityType="CarDealershipModel.RequestStatus" Width="1.5" PointX="7.5" PointY="14.125" />
+        <EntityTypeShape EntityType="CarDealershipModel.Sale" Width="1.5" PointX="12" PointY="1.25" />
+        <EntityTypeShape EntityType="CarDealershipModel.Series" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="CarDealershipModel.Street" Width="1.5" PointX="3" PointY="8.125" />
+        <EntityTypeShape EntityType="CarDealershipModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" />
+        <AssociationConnector Association="CarDealershipModel.FK_Address_City" />
+        <AssociationConnector Association="CarDealershipModel.FK_Address_Street" />
+        <AssociationConnector Association="CarDealershipModel.FK_Customer_Address" />
+        <AssociationConnector Association="CarDealershipModel.FK_Car_Series" />
+        <AssociationConnector Association="CarDealershipModel.FK_Request_Car" />
+        <AssociationConnector Association="CarDealershipModel.FK_Series_Category" />
+        <AssociationConnector Association="CarDealershipModel.FK_Mark_Country" />
+        <AssociationConnector Association="CarDealershipModel.FK_Customer_Gender" />
+        <AssociationConnector Association="CarDealershipModel.FK_Request_Customer" />
+        <AssociationConnector Association="CarDealershipModel.FK_Sale_Employee" />
+        <AssociationConnector Association="CarDealershipModel.FK_Series_Mark" />
+        <AssociationConnector Association="CarDealershipModel.FK_Request_RequestStatus" />
+        <AssociationConnector Association="CarDealershipModel.FK_Sale_Request" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

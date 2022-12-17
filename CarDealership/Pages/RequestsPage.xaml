@@ -1,0 +1,47 @@
+﻿<Page x:Class="CarDealership.Pages.RequestsPage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarDealership.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RequestsPage" Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer Grid.Column="1" Grid.Row="1">
+            <GroupBox Header="Заявки">
+                <ListView x:Name="lvRequests">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Car.Car_Id, StringFormat=Код автомобиля: {0}}"></TextBlock>
+                                <TextBlock Text="{Binding Car.Color, StringFormat=Цвет: {0}}"></TextBlock>
+                                <TextBlock Text="{Binding Car.Series.Mark.Mark_Name, StringFormat=Марка: {0}}"></TextBlock>
+                                <TextBlock Text="{Binding Car.Series.Series_Name, StringFormat=Серия: {0}}"></TextBlock>
+                                <TextBlock Text="{Binding Car.Cost, StringFormat=Стоимость: {0}}"></TextBlock>
+                                <TextBlock Text="{Binding Car.Count, StringFormat=Оставшееся кол-во: {0}}" ></TextBlock>
+                                <TextBlock Text="{Binding Customer.Lastname, StringFormat=Фамилия покупателя: {0}}" ></TextBlock>
+                                <Button Content="Одобрить заявку" Click="GrantRequest" Margin="0, 0, 0, 10"></Button>
+                                <Button Content="Отклонить заявку" Click="DenyRequest"></Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </GroupBox>
+        </ScrollViewer>
+
+    </Grid>
+</Page>
